@@ -39,11 +39,14 @@ while count > 0:
 
 	print("가위(1) 바위(2) 보(3) 를 선택해 주세요.")
 
-	player = int(input())
+	player = input()
 
-
+	while not (player.isdigit()) or int(player)>3 or int(player)==0:
+		print("부적절한 숫자 혹은 문자 입니다.")
+		print("가위(1) 바위(2) 보(3) 를 선택해 주세요.")
+		player = input()
+	player = int(player)
 	c = random.choice(com)
-
 	if (player==1 and c == 1) or (player==2 and c == 2) or (player==3 and c == 3):
 		print("당신과 컴퓨터는 서로 ",choi[player-1], "를 내서 비겼습니다.")
 		result[1] += 1
@@ -65,6 +68,8 @@ while count > 0:
 		result[2] += 1
 
 	count -= 1
+	print("-------------------------------------------------------------------")
+	print()
 
 
 print(result[0],"번 이김")
